@@ -1,0 +1,33 @@
+ld Platform Packages (./platform folder):
+1. Get Android Open Source code;
+
+Branch: Android 6.0
+
+Sync code command:
+repo init -u https://android.googlesource.com/platform/manifest.git -b android-6.0.0_r1
+repo sync
+
+Build command for Android Open Source code:
+source build/envsetup.sh
+lunch aosp_arm64-eng
+make
+
+2. Copy module that you want to build to original android open source;
+
+3. Build the module on Android Open Source code;
+
+==============================
+
+
+Build Kernel (./kernel-3.10 folder):
+
+Command:
+PATH=${PATH}:/Android_AOSP/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/
+export ARCH=arm64
+make aio_5m_defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-android-
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-android-
+
+
+==============================
+
+Contact Lenovo support for information on obtaining Open Source code.
